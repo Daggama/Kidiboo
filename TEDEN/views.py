@@ -6,6 +6,9 @@ from .forms import CreateUserForm
 def index(request):
     return render(request,'index.html')
 
+def catalog(request):
+    return render(request, 'catalog.html')
+
 
 
 def registerPage(request):
@@ -49,3 +52,4 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
+
