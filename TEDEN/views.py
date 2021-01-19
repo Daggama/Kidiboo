@@ -2,18 +2,23 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import CreateUserForm
+from .models import Book
 # Create your views here.
+
+
 def index(request):
-    return render(request,'index.html')
+    return render(request,'menu.html')
+
 
 def catalog(request):
-    return render(request, 'catalog.html')
+    book = Book.objects.all()
+    return render(request, 'catalog.html', {'title': 'List','book': book })
 
 
 
 def registerPage(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('menu')
     else:
         form = CreateUserForm()
         if request.method == 'POST':
@@ -31,7 +36,7 @@ def registerPage(request):
 
 def loginPage(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('menu')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -41,7 +46,7 @@ def loginPage(request):
 
             if user is not None:
                 login(request, user)
-                return redirect('home')
+                return redirect('menu')
             else:
                 messages.info(request, 'Username OR password is incorrect')
 

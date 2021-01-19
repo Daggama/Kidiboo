@@ -3,6 +3,7 @@ from django.urls import reverse
 import uuid
 # Create your models here.
 
+
 class Genre(models.Model):
     
     name = models.CharField(max_length=200, help_text="Enter a book genre (e.g. Science Fiction, French Poetry etc.)")
@@ -10,6 +11,7 @@ class Genre(models.Model):
     def __str__(self):
 
         return self.name
+
 
 class Book(models.Model):
 
@@ -25,6 +27,7 @@ class Book(models.Model):
 
     def get_absolute_url(self):
         return reverse('book-detail', args=[str(self.id)])
+
 
 class Author(models.Model):
 
@@ -45,8 +48,6 @@ class Language(models.Model):
         return self.name
 
 
-
-
 class BookInstance(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="Unique ID for this particular book across whole library")
@@ -65,7 +66,6 @@ class BookInstance(models.Model):
 
     class Meta:
         ordering = ["due_back"]
-
 
     def __str__(self):
         return '%s (%s)' % (self.id,self.book.title)

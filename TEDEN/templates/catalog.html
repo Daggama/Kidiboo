@@ -1,8 +1,27 @@
 {% extends 'index.html' %}
+
+
 {% block title %}
 {% endblock %}
 
 
 {% block content %}
-<h1>Сайт все еще не готов</h1>
+    {% for el in book %}
+    <div class="alert alert-light mt-2">
+        <div class="row p-2 overflow-hidden flex-md-row mb-2 position-relative">
+            {% if el.image %}
+                <img src="{{ MEDIA_URL }}{{ el.image.url }}" width="150" height="150">
+            {% endif %}
+            <div class="center p-2">
+                <h5>{{ el.title}}</h5>
+                <p>Автор: {{ el.author }}</p>
+                <p>Жанр: {{ el.genre.all }}</p>
+                <p>Описание: {{ el.description}}</p>
+            </div>
+            <div>
+                <p>Описание: {{ el.description}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 {% endblock %}
