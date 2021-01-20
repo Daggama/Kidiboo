@@ -18,7 +18,7 @@ def catalog(request):
 
 def registerPage(request):
     if request.user.is_authenticated:
-        return redirect('menu')
+        return redirect('home')
     else:
         form = CreateUserForm()
         if request.method == 'POST':
@@ -36,7 +36,7 @@ def registerPage(request):
 
 def loginPage(request):
     if request.user.is_authenticated:
-        return redirect('menu')
+        return redirect('home')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -46,7 +46,7 @@ def loginPage(request):
 
             if user is not None:
                 login(request, user)
-                return redirect('menu')
+                return redirect('home')
             else:
                 messages.info(request, 'Username OR password is incorrect')
 
