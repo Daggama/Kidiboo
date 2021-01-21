@@ -21,7 +21,8 @@ class Book(models.Model):
     language = models.ForeignKey('Language', on_delete=models.SET_NULL, null=True)
     image = models.ImageField()
     description = models.TextField(max_length=1000, help_text="Опишите краткое содержание книги")
-    
+    price = models.IntegerField()
+
     def __str__(self):
         return self.title
 
