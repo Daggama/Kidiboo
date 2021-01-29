@@ -1,31 +1,41 @@
 {% extends 'index.html' %}
 
-
 {% block title %}
 {% endblock %}
 
 
 {% block content %}
 <style>
+.container {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
 .layer1 {
-background-color: red; /* Цвет фона слоя */
+background-color: black; /* Цвет фона слоя */
 padding: 5px; /* Поля вокруг текста */
 float: left ; /* Обтекание по правому краю */
 width: 160px; /* Ширина слоя */
 left: 10px;
 }
+
 .layer2 {
 background-color: #c0c0c0; /* Цвет фона слоя */
 padding: 5px; /* Поля вокруг текста */
 width: 300px; /* Ширина слоя */
 float: left ; /* Обтекание по правому краю */
 }
+
 .clear {
 clear: left; /* Отмена обтекания */
 }
+
 </style>
+
+<div class="alert alert-light mt-2">
+    <div class="container">
     {% for el in book %}
-    <div class="alert alert-light mt-2">
         <div class="layer1">
             <div class="center">
                 {% if el.image %}
@@ -39,6 +49,8 @@ clear: left; /* Отмена обтекания */
             </div>
         </div>
         <div class="clear"></div>
-    </div>
+        <br>
     {% endfor %}
+</div>
+    </div>
 {% endblock %}

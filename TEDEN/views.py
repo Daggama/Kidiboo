@@ -15,7 +15,6 @@ def catalog(request):
     return render(request, 'catalog.html', {'title': 'List','book': book })
 
 
-
 def registerPage(request):
     if request.user.is_authenticated:
         return redirect('home')
