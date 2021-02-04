@@ -1,0 +1,31 @@
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1100px; /* макс ширина */
+	margin:  auto; /* выровняем по центру */
+}
+.item{
+	margin: 5px;
+	border-radius: 8%;
+	box-sizing:border-box; /* чтобы внутренний отступ не влиял когда там будет текст... */
+	min-width: 80px; /* мин. ширина блока, чтобы переносились на другой ряд */
+	padding: 5px; background:black; /* для красоты */
+	}
+
+.image_form{
+    border-radius: 8%;
+    border: 2px solid black;
+    padding: 1%;
+    width: 150px;
+    height: 150px;
+}
+
+.background_one {
+    url('https://image.freepik.com/free-photo/white-brick-wall-background_1203-2759.jpg'); background-repeat: no-repeat;
+	background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    }

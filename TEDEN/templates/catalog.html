@@ -9,18 +9,24 @@
 .flex{
 	display: flex;
 	flex-wrap: wrap;
-
 	max-width: 1100px; /* макс ширина */
 	margin:  auto; /* выровняем по центру */
 }
-
 .item{
-	flex:1 1 calc( - 10px); /* отнимем margin и скажем растягиваться */
-	margin:5px;
+	margin: 5px;
+	border-radius: 8%;
 	box-sizing:border-box; /* чтобы внутренний отступ не влиял когда там будет текст... */
-	min-width:80px; /* мин. ширина блока, чтобы переносились на другой ряд */
-	padding:5px ; background:black; /* для красоты */
+	min-width: 80px; /* мин. ширина блока, чтобы переносились на другой ряд */
+	padding: 5px; background:black; /* для красоты */
+	}
+.image_form{
+    border-radius: 8%;
+    border: 2px solid black;
+    padding: 1%;
+    width: 150px;
+    height: 150px;
 }
+
 </style>
 
 <div class="alert alert-light mt-2">
@@ -30,14 +36,13 @@
             {% for el in book %}
             <div class="item">
                     {% if el.image %}
-                        <img src="{{ MEDIA_URL }}{{ el.image.url }}" width="150" height="150">
+                        <img class="image_form" src="{{ MEDIA_URL }}{{ el.image.url }}">
                     {% endif %}
 
                     <h5>{{ el.title}}</h5>
                     <p>Автор: {{ el.author }}</p>
                     <p>Цена: {{ el.price }} тг</p>
             </div>
-
             {% endfor %}
         </div>
     </div>
